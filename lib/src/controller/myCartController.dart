@@ -4,7 +4,17 @@ import 'package:model_use/src/controller/model/myCartModel.dart';
 
 class MyCartController extends GetxController {
   RxList<ProducModel> productList = <ProducModel>[].obs;
-  int i = 0;
+ RxInt i = 1.obs;
+
+void increament() {
+  i.value++;
+}
+
+void decreament() {
+  if (i.value > 1) {
+    i.value--;
+  }
+}
 
   @override
   void onInit() {

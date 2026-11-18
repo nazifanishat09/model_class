@@ -24,7 +24,8 @@ class MyCartScreen extends StatelessWidget {
               SizedBox(
                 //height: 310,
                 child: Obx(() {
-                  return ListView.builder(physics: NeverScrollableScrollPhysics(),
+                  return ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
                     itemCount: myCartController.productList.length,
@@ -110,16 +111,20 @@ class MyCartScreen extends StatelessWidget {
                                       child: IconButton(
                                         padding: EdgeInsets.zero,
                                         constraints: BoxConstraints(),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          myCartController.increament();
+                                        },
                                         icon: Icon(Icons.add, size: 18),
                                       ),
                                     ),
 
-                                    Text(
-                                      '1',
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w600,
+                                    Obx(
+                                      () => Text(
+                                        '${myCartController.i.value.toString()}',
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                       ),
                                     ),
                                     Container(
